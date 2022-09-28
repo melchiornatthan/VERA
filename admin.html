@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+  <link href="custom.css" rel="stylesheet" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-default navbar-light sticky-top" style="background-color: #152A38;">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold text-white" href="#home">Administrator</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active text-white" aria-current="page" href="#home">Home</a>
+          <a class="nav-link text-white" href="#data_user">User</a>
+          <a class="nav-link text-white" href="#data_booking">Booking</a>
+          <a class="nav-link text-white" href="#data_admin">Admin</a>
+          <a class="nav-link text-white" href="#data_vehicle">Vehicle</a>
+          <a class="nav-link text-white" href="#data_driver">Driver</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid px-4 py-3 text-center" style="background-color: #F1F1F1;" id="home">
+    <h1 class="display-4 py-3 fw-bold">Welcome to the Admin Page</h1>
+  </div>
+  <div class="container-fluid px-4 py-1 text-center table-wrapper-scroll-y my-custom-scrollbar py-3"
+    style="background-color: #F1F1F1;" id="home">
+    <h1 class="display-4 py-3">User Table</h1>
+    <table class="table table-hover shadow" style="background-color: #F1F1F1;" id=data_user>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+    <input class="btn btn-danger btn-lg mx-auto my-auto" type="button" value="Delete" id="delete_user" />
+  </div>
+  <div class="container-fluid px-4 py-1 text-center table-wrapper-scroll-y my-custom-scrollbar py-3"
+    style="background-color: #F1F1F1;" id="home">
+    <h1 class="display-4 py-3">Booking Table</h1>
+    <table class="table table-hover shadow" style="background-color: #F1F1F1;" id=data_booking>
+      <thead>
+        <tr>
+          <th>Price</th>
+          <th>Date</th>
+          <th>Vehicle ID</th>
+          <th>Driver ID</th>
+          <th>User ID</th>
+          <th></th>
+        </tr>
+      </thead>
+    </table>
+    <input class="btn btn-danger btn-lg mx-auto my-auto" type="button" value="Delete" id="delete_booking" />
+  </div>
+  <div class="container-fluid px-4 py-1 text-center table-wrapper-scroll-y my-custom-scrollbar py-3"
+    style="background-color: #F1F1F1;">
+    <h1 class="display-4 py-3">Admin Table</h1>
+    <table class="table table-hover shadow" style="background-color: #F1F1F1;" id=data_admin>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="container-fluid px-4 py-1 text-center py-3" style="background-color: #F1F1F1;">
+    <div class="row g-2">
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 mx-auto my-auto px-4 py-1 text-center table-wrapper-scroll-y my-custom-scrollbar py-3"
+        style="background-color: #F1F1F1;">
+        <h1 class="display-4 py-3">Vehicle Table</h1>
+        <table class="table table-hover shadow " style="background-color: #F1F1F1;" id=data_vehicle>
+          <thead>
+            <tr>
+              <th>Registration Number</th>
+              <th>Car Model</th>
+              <th>Availability</th>
+              <th></th>
+            </tr>
+          </thead>
+        </table>
+        <input class="btn btn-danger btn-lg mx-auto my-auto" type="button" value="Delete" id="delete_vehicle" />
+      </div>
+      <div
+        class="col-sm-12 col-md-6 col-lg-6 mx-auto my-auto px-4 py-1 text-center table-wrapper-scroll-y my-custom-scrollbar py-3"
+        style="background-color: #F1F1F1;">
+        <h1 class="display-4 py-3">Driver Table</h1>
+        <table class="table table-hover shadow" style="background-color: #F1F1F1;" id=data_driver>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Address</th>
+              <th>Availability</th>
+              <th></th>
+            </tr>
+          </thead>
+        </table>
+        <input class="btn btn-danger btn-lg mx-auto my-auto" type="button" value="Delete" id="delete_driver" />
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid px-4 py-1 text-center py-3" style="background-color: #F1F1F1;">
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-6 mx-auto my-auto py-3 text-center" style="background-color: #F1F1F1;">
+        <h1 class="display-4 py-3">Add Vehicle</h1>
+        <input type="text" class="form-control w-50 mx-auto my-auto py-2" id="reg_number"
+          placeholder="Registration Number" />
+        <input type="text" class="form-control w-50 my-auto mx-auto" id="car_model" placeholder="Car Model" />
+        <p class="fw-bold my-auto fs-4">Availability</p>
+        <input type="radio" name="avail" value="true" /> Yes <br />
+        <input type="radio" name="avail" value="false" /> No <br />
+        <div class="py-2">
+          <input class="btn btn-success btn-lg mx-auto my-auto" type="button" value="Add" id="add_vehicle" />
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 mx-auto my-auto text-center py-3" style="background-color: #F1F1F1;">
+        <h1 class="display-4 py-3">Add Driver</h1>
+        <input type="text" class="form-control w-50 mx-auto my-auto" id="name" placeholder="Name" />
+        <input type="text" class="form-control w-50 my-auto mx-auto" id="phone_number" placeholder="Phone Number" />
+        <input type="text" class="form-control w-50 my-auto mx-auto" id="address" placeholder="Address" />
+        <div class="py-2">
+          <input class="btn btn-success btn-lg mx-auto my-auto" type="button" value="Add" id="add_driver" />
+        </div>
+      </div>
+    </div>
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+  var days, driver_name, phonenumber, address, driver_id, vehicle_id, user_id, booking_id, car_model, reg_number, avail;
+  jQuery(document).ready(function ($) {
+    $.post("/bookingadmin", {}, function (data) {
+      $("#data_booking").html(data);
+    });
+    $.post("/useradmin", {}, function (data) {
+      $("#data_user").html(data);
+    });
+    $.post("/vehicleadmin", {}, function (data) {
+      $("#data_vehicle").html(data);
+    });
+    $.post("/driveradmin", {}, function (data) {
+      $("#data_driver").html(data);
+    });
+    $.post("/admindata", {}, function (data) {
+      $("#data_admin").html(data);
+    });
+  });
+
+  /* 
+    DELETE USER
+  */
+  $("#delete_user").click(function () {
+    user_id = $('input[name=user]:checked').val()
+    $.post("/deleteuser", {
+      user_id: user_id
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Delete Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Delete");
+      }
+    });
+  });
+
+  /* 
+    DELETE DRIVER
+  */
+  $("#delete_driver").click(function () {
+    driver_id = $('input[name=driver]:checked').val()
+    $.post("/deletedriver", {
+      driver_id: driver_id
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Delete Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Delete");
+      }
+    });
+  });
+
+  /* 
+    ADD DRIVER
+  */
+  $("#add_driver").click(function () {
+    driver_name = $("#name").val();
+    phonenumber = $("#phone_number").val();
+    address = $("#address").val();
+    $.post("/adddriver", {
+      driver_name: driver_name,
+      phonenumber: phonenumber,
+      address: address
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Add Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Add");
+      }
+    });
+  });
+
+  /* 
+    ADD VEHICLE
+  */
+  $("#add_vehicle").click(function () {
+    car_model = $("#car_model").val();
+    reg_number = $("#reg_number").val();
+    avail = $('input[name=avail]:checked').val()
+    $.post("/addvehicle", {
+      car_model: car_model,
+      reg_number: reg_number,
+      avail: avail
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Add Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Add");
+      }
+    });
+  });
+
+  /* 
+    DELETE BOOKING
+  */
+  $("#delete_booking").click(function () {
+    booking_id = $('input[name=booking]:checked').val()
+    $.post("/deletebooking", {
+      booking_id: booking_id
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Delete Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Delete");
+      }
+    });
+  });
+
+  /* 
+    DELETE VEHICLE
+  */
+  $("#delete_vehicle").click(function () {
+    vehicle_id = $('input[name=vehicle]:checked').val()
+    $.post("/deletevehicle", {
+      vehicle_id: vehicle_id
+    }, function (data) {
+      if (data === "done") {
+        window.alert("Delete Sukses");
+        window.location.reload();
+      } else {
+        window.alert("Gagal Melakukan Delete");
+      }
+    });
+  });
+</script>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container-fluid px-4 py-5 text-center" style="background-color: #556E53" id="home">
+    <h1 class="display-5 text-white fw-bold py-3">VERA.</h1>
+    <div class="row w-50 g-3 py-5 mx-auto">
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="log_username" placeholder="Username" />
+          <label for="floatingInput">Username</label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="log_password" placeholder="Password" />
+          <label for="floatingPassword">Password</label>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <input class="btn btn-primary btn-lg px-4 gap-3" type="button" value="Submit" id="submits" />
+    </div>
+  </div>
+  <div class="container-fluid px-4 py-5 text-center" style="background-color: #F1F1F1" id="home">
+    <h1 class="display-5 fw-bold py-5">Register Now!</h1>
+    <div class="row w-50 g-1 py-1 mx-auto">
+      <div class="col-sm-8">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="name" placeholder="Name" />
+          <label for="floatingInput">Name</label>
+        </div>
+      </div>
+    </div>
+    <div class="row w-50 g-1 py-1 mx-auto">
+      <div class="col-sm-8">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="address" placeholder="Address" />
+          <label for="floatingInput">Address</label>
+        </div>
+      </div>
+    </div>
+    <div class="row w-50 g-1 py-1 mx-auto">
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="email" class="form-control" id="email" placeholder="Email" />
+          <label for="floatingInput">Email</label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="tel" pattern="[0-9]{13}" class="form-control" id="phone" placeholder="Phone Number" />
+          <label for="floatingInput">Phone Number</label>
+        </div>
+      </div>
+    </div>
+    <div class="row w-50 g-1 py-1 mx-auto">
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="reg_username" placeholder="Username" />
+          <label for="floatingInput">Username</label>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-floating">
+          <input type="password" class="form-control" id="reg_password" placeholder="Password" />
+          <label for="floatingInput">Password</label>
+        </div>
+      </div>
+      <div class="row w-50 g-1 py-1 mx-auto">
+        <input class="btn btn-primary btn-lg px-4" type="button" value="Register" id="register" />
+      </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+      jQuery(document).ready(function ($) {
+        var username, pass;
+
+        /* 
+          USER LOGIN
+        */
+        $("#submits").click(function () {
+          username = $("#log_username").val();
+          password = $("#log_password").val();
+          $.post("/login", {
+            username: username,
+            password: password,
+          }, function (data) {
+            if (data === 'done') {
+              window.location.href = '/home';
+              alert('Login Sukses');
+            } else if (data === 'fail') {
+              alert('Login Gagal');
+            } else if (data === 'password') {
+              alert('Password Salah');
+            } else if (data === 'kosong') {
+              alert('Mohon Isi Semua Form');
+            }
+          });
+        });
+
+        /* 
+          USER REGISTER
+        */
+        $("#register").click(function () {
+          name = $("#name").val();
+          address = $("#address").val();
+          email = $("#email").val();
+          phone = $("#phone").val();
+          username = $("#reg_username").val();
+          password = $("#reg_password").val();
+          $.post("/register", {
+            name: name,
+            address: address,
+            email: email,
+            phone: phone,
+            username: username,
+            password: password,
+          }, function (data) {
+            if (data === "done") {
+              alert("Registrasi Sukses");
+            } else if (data === "fail") {
+              alert("Registrasi Gagal");
+            } else if (data === "kososng") {
+              alert("Mohon Isi Semua Form");
+            }
+          });
+        });
+      });
+    </script>
+  </div>
+</body>
+
+</html>
